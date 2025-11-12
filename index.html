@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adarsh Rajput | Portfolio</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
       overflow: hidden;
       background: radial-gradient(circle at center, #0a0a0a, #000);
@@ -23,12 +18,7 @@
       color: #fff;
       perspective: 1000px;
     }
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+    canvas { position: absolute; top: 0; left: 0; z-index: 0; }
     .card {
       position: relative;
       z-index: 2;
@@ -65,11 +55,7 @@
       from { box-shadow: 0 0 8px #00ffff; }
       to { box-shadow: 0 0 25px #00ffff; }
     }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
+    h1 { font-size: 24px; margin-bottom: 10px; letter-spacing: 1px; }
     .typing {
       font-size: 14px;
       color: #dcdcdc;
@@ -80,19 +66,9 @@
       animation: typing 4s steps(40, end), blink 0.8s infinite;
       width: 0;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    .btns {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent; } }
+    .btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
     a {
       display: inline-block;
       text-decoration: none;
@@ -103,22 +79,15 @@
       transition: background 0.3s, color 0.3s, transform 0.3s;
       font-size: 14px;
     }
-    a:hover {
-      background: #00ffff;
-      color: #000;
-      transform: scale(1.05);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    a:hover { background: #00ffff; color: #000; transform: scale(1.05); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <canvas id="bg"></canvas>
 
   <div class="card" id="tiltCard">
-    <img src="https://graph.org/file/ea459dcdf41192cd23366-38b794bb391cedb2e7.jpg" alt="Adarsh Rajput" class="profile-pic" />
+    <img src="https://graph.org/file/8bcccbb33e82ffa6460ae-df2da11be2aa622c4e.jpg" alt="Adarsh Rajput" class="profile-pic" />
     <h1>Adarsh Rajput</h1>
     <p class="typing">Web Developer Focused on Design and Animation</p>
     <div class="btns">
@@ -139,16 +108,12 @@
 
     class Particle {
       constructor(x, y, radius, color, speedX, speedY) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.color = color;
-        this.speedX = speedX;
-        this.speedY = speedY;
+        this.x = x; this.y = y; this.radius = radius;
+        this.color = color; this.speedX = speedX; this.speedY = speedY;
       }
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
         ctx.fillStyle = this.color;
         ctx.shadowBlur = 15;
         ctx.shadowColor = this.color;
@@ -164,20 +129,20 @@
     }
 
     function init() {
-      for (let i = 0; i < 70; i++) {
-        const radius = Math.random() * 2;
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const color = ["#00ffff", "#00ffaa", "#0077ff"][Math.floor(Math.random() * 3)];
-        const speedX = (Math.random() - 0.5) * 0.8;
-        const speedY = (Math.random() - 0.5) * 0.8;
-        particles.push(new Particle(x, y, radius, color, speedX, speedY));
+      for (let i=0; i<70; i++) {
+        const radius = Math.random()*2;
+        const x = Math.random()*canvas.width;
+        const y = Math.random()*canvas.height;
+        const color = ["#00ffff","#00ffaa","#0077ff"][Math.floor(Math.random()*3)];
+        const speedX = (Math.random()-0.5)*0.8;
+        const speedY = (Math.random()-0.5)*0.8;
+        particles.push(new Particle(x,y,radius,color,speedX,speedY));
       }
     }
 
     function animate() {
       requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0,0,canvas.width,canvas.height);
       particles.forEach(p => p.update());
     }
 
